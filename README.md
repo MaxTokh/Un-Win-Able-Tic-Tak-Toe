@@ -2,7 +2,7 @@
 
 This project is an innocent game of Tic-Tak-Toe, but there's a catch. You will NEVER win. :)
 
-![alt text]https://github.com/adam-p/markdown-here/raw/master/src/common/images/Un-Win-Able Tic-Tak-Toe Demo.png
+![logo](https://github.com/MaxTokh/Un-Win-Able-Tic-Tak-Toe/blob/main/Un-Win-Able%20Tic-Tak-Toe%20Demo.png?raw=true)
 
 ### You will never win. Dare to attempt:
 
