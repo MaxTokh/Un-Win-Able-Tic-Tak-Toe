@@ -1,1 +1,1 @@
-public class Mian {}
+public class Main {}
