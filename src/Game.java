@@ -1,10 +1,9 @@
-package com.maxtok;
+//package com.maxtok;
 
 import java.util.Scanner;
 import java.util.Random;
 
-public class Game {
-    // Creates board
+public class Game { // Creates board
     private char [][] board = {{'1', '2' , '3'},
                                {'4', '5' , '6'},
                                {'7', '8' , '9'} };
@@ -14,16 +13,14 @@ public class Game {
         input = new Scanner(System.in);
     }
 
-    public void print () {
-        // Prints board
+    public void print () { // Prints board
+      System.out.println("Available Moves:");
         for (int y = 0; y < 3 ; ++y)
         {
             System.out.printf (" %c | %c | %c \n", board[y][0], board[y][1], board[y][2] );
-            // Creates breaks in the board
-            if (y < 2) {
+            if (y < 2) { // Creates breaks in the board
                 System.out.println(" ---------");
             }
-
         }
         System.out.println(" "); // Makes break in between each move
     }
@@ -39,34 +36,52 @@ public class Game {
                 if (theyWon()) {
                     System.out.println("Congrats!");
                     break;
-                } else if (move == 9) {
+                } else if (move == 9) { //Finds the game is over after 9 moves
                     System.out.println("A tie. How original.");
                     break;
                 }
                 ourMove();
                 ++move;
             } while (!weWon());
-            destroyEnemyMorale();
-            playAgain = askToPlay();
+            destroyEnemyMorale(); //Prints random discouraging message
+            playAgain = askToPlay(); //STILL NEEDS TO BE MADE
         }
     }
 
-    private boolean askToPlay() {
+    private boolean askToPlay() { //STILL NEEDS TO BE FINISHED
         System.out.println("Dare to try Again? \n Perply \"sure\" or \"nope\"");
         String str = input.nextLine();
         return (str.equals("sure"));
     }
 
+    /*
+NO NEEDED
     public void testScoring(char [][] test)
     {
         board = test;
         print();
         System.out.println(analyzeBoard());
-    }
+    } */
 
     private void theirMove() {
         print();
         getTheirs();
+    }
+
+    private int getTheirs() {
+        int theirs, y, x ;
+        do {
+            System.out.println("Which square would you like to take");
+            System.out.print("reply a number to your corresponding square or 0 to resign: ");
+            theirs = input.nextInt();
+            y = (theirs - 1) / 3; //Calculates which squre user would like to take
+            x = (theirs - 1) % 3;
+        } while (theirs < 1 || theirs > 9 || board[y][x] < '1' || board[y][x] > '9' ); //Sets parameters on the board to only real quares. No thinking outside the bbo :(
+
+        put(theirs, 'X');
+        System.out.println(" ");
+        print();
+        return theirs;
     }
 
     private void ourMove() {
@@ -225,24 +240,6 @@ public class Game {
             default: reply1center();
                 break;
         }
-    }
-
-    private int getTheirs() {
-        int theirs, y, x ;
-        do {
-            System.out.println("Which square would you like to take");
-            System.out.print("reply a number to your corresponding square or 0 to resign: ");
-            theirs = input.nextInt();
-            //y = 1;
-            //x = 1;
-            y = (theirs - 1) / 3;
-            x = (theirs - 1) % 3;
-        } while (theirs < 1 || theirs > 9 || board[y][x] < '1' || board[y][x] > '9' );
-
-        put(theirs, 'X');
-        System.out.println(" ");
-        print();
-        return theirs;
     }
 
     private void reply1corner() {
