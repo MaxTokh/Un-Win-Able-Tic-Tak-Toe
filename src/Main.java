@@ -1,4 +1,4 @@
-package com.maxtok;
+//package com.maxtok;
 
 public class Main {
 
@@ -6,18 +6,5 @@ public class Main {
 	    Game b = new Game();
 
 	    b.play();
-//        char [][] testX3 = {{'X', 'X' , 'X'},
-//                {' ', '5' , ' '},
-//                {' ', ' ' , ' '} };
-//	    b.testScoring(testX3);
-//        char [][] testXO = {{' ', 'X' , 'X'},
-//                {'O', 'O' , ' '},
-//                {'O', ' ' , ' '} };
-//        b.testScoring(testXO);
-//        char [][] testOX = {{' ', 'O' , 'O'},
-//                {'X', 'X' , ' '},
-//                {'X', ' ' , ' '} };
-//        b.testScoring(testOX);
-
     }
 }
